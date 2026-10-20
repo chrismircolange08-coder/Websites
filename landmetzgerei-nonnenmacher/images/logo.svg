@@ -1,8 +1,0 @@
-<!-- PLATZHALTER – KEIN LOGO-ENTWURF!
-     Diese Datei durch das Original-Logo der alten Website ersetzen
-     (http://landmetzgerei-nonnenmacher.de/images/logo.svg), Dateiname beibehalten. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" width="300" height="100" role="img" aria-label="Logo-Platzhalter">
-  <rect x="2" y="2" width="296" height="96" rx="8" fill="#ffffff" stroke="#9a938c" stroke-width="3" stroke-dasharray="10 7"/>
-  <text x="150" y="45" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="700" fill="#5f5852">LOGO-PLATZHALTER</text>
-  <text x="150" y="72" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#5f5852">Original logo.svg hier einsetzen</text>
-</svg>

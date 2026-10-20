@@ -20,7 +20,8 @@ landmetzgerei-nonnenmacher/
 ├── js/main.js            Seitenlogik (muss normalerweise nicht geändert werden)
 ├── fonts/                Schriften Bitter + Source Sans 3, lokal (DSGVO), Lizenz OFL
 ├── images/
-│   ├── logo.svg          ⚠ Platzhalter, durch das Original-Logo ersetzen
+│   ├── logo.webp/.png    Logo (aus Bildschirmfoto, später durch logo.svg ersetzen)
+│   ├── favicon.png
 │   └── fotos/            ⚠ Platzhalter-Fotos (WebP)
 ├── tools/farben-aus-logo.py   liest die Farben aus dem Logo aus
 ├── .htaccess             Komprimierung + Cache (Apache-Hosting)
@@ -97,12 +98,19 @@ Bei `googleLink` den Link zu Ihrem Google-Profil eintragen (Google Maps → Ihr 
 
 ## Logo und Farben
 
-1. Das Original-Logo als `images/logo.svg` ablegen und den Platzhalter überschreiben. Den Dateinamen beibehalten.
-2. Farben auslesen:
-   ```
-   python3 tools/farben-aus-logo.py images/logo.svg
-   ```
-3. Die vorgeschlagenen Werte in `css/farben.css` eintragen. Die Hauptfarbe zusätzlich in `index.html` bei `<meta name="theme-color">` eintragen.
+- **Logo:** `images/logo.webp` und `images/logo.png` wurden aus einem Bildschirmfoto der bisherigen Website ausgeschnitten und freigestellt. Das Logo ist unverändert, die Auflösung aber begrenzt (ca. 300 px).
+  Liegt die Original-Datei `logo.svg` vor, legen Sie sie nach `images/` und ersetzen in den drei HTML-Dateien `images/logo.webp` durch `images/logo.svg`.
+- **Farben** (`css/farben.css`) wurden direkt aus Logo und bisheriger Website gemessen:
+
+  | Rolle | Farbe | Herkunft |
+  |---|---|---|
+  | Primär | `#70160b` Weinrot | Rahmen des Logo-Schilds, Schriftfarbe der alten Seite |
+  | Akzent | `#f0d164` Gold | Schriftband „Landmetzgerei“ |
+  | Status „geöffnet“ | `#1b3e10` Weidegrün | Wiese hinter den Tieren |
+  | Verlauf | `#f3cd4e` → `#faeaae` | Hintergrund der alten Website (Shop-Banner, Kontakt) |
+
+  Mit der Original-SVG lassen sich die Werte so prüfen: `python3 tools/farben-aus-logo.py images/logo.svg`.
+  Ändern Sie die Hauptfarbe, dann bitte auch in `index.html` bei `<meta name="theme-color">` nachziehen.
 
 ## Fotos austauschen
 

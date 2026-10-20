@@ -9,14 +9,16 @@
      bis    – (optional) nach diesem Tag automatisch ausblenden
    Ist die Liste leer [ ], wird die ganze Box ausgeblendet.
 
-   Vorlage zum Kopieren:
+   Vorlage zum Kopieren (Hinweis von der bisherigen Website):
      {
-       titel: "Betriebsurlaub",
-       text:  "Vom 10. bis 20. August bleibt unser Laden geschlossen. Ab dem 21. August sind wir wieder für Sie da.",
+       titel: "Geänderte Öffnungszeiten",
+       text:  "Unser Sommerurlaub ist vom 10. August bis einschließlich 2. September 2026. Ab Do., den 3. September sind wir wieder für Sie da!",
        art:   "urlaub",
-       von:   "2026-07-25",
-       bis:   "2026-08-20"
+       von:   "2026-07-20",
+       bis:   "2026-09-02"
      },
+   Tipp: Die Urlaubstage zusätzlich in daten/einstellungen.js bei
+   geschlosseneTage eintragen, damit sie nicht vorbestellt werden können.
    ========================================================================== */
 
 window.AKTUELLES = [

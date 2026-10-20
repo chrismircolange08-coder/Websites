@@ -1,36 +1,44 @@
 /* ==========================================================================
    FARBPALETTE – Landmetzgerei Nonnenmacher
    --------------------------------------------------------------------------
-   ⚠ VORLÄUFIG: Diese Werte sind Platzhalter, weil die Original-Datei
-   images/logo.svg beim Bau nicht abrufbar war.
+   Abgeleitet aus dem Logo und der bisherigen Website (Pixelwerte gemessen):
+     Weinrot  #70160b  – Rahmen des Logo-Schilds, Schrift der alten Seite
+     Gold     #f0d164  – Schriftband „Landmetzgerei“ / Schriftzug „Nonnenmacher“
+     Grün     #1b3e10  – Weide hinter den Tieren
+     Gelb-Verlauf #f3cd4e → #faeaae – Hintergrund der alten Website
+   (Das Blau des Himmels im Logo #283495 wird bewusst nicht verwendet.)
+   Ergänzt nur um neutrale Töne (warmes Off-White, Dunkelgrau).
 
-   So setzen Sie die echten Logo-Farben ein:
-     1. Original-Logo als images/logo.svg ablegen
-     2. Im Ordner der Website ausführen:
-          python3 tools/farben-aus-logo.py images/logo.svg
-     3. Die ausgegebenen Werte für --c-primaer / --c-akzent hier eintragen.
-
-   Regel: Nur Farben aus dem Logo + neutrale Töne (Off-White, Grau).
+   Sobald die Original-Datei logo.svg vorliegt, können die Werte mit
+     python3 tools/farben-aus-logo.py images/logo.svg
+   exakt nachgeprüft werden.
    ========================================================================== */
 
 :root {
   /* --- Markenfarben (aus dem Logo) ------------------------------------- */
-  --c-primaer:        #8c2f1f; /* VORLÄUFIG – Hauptfarbe des Logos        */
-  --c-primaer-dunkel: #6b2316; /* ca. 20 % dunkler: Hover, Header-Text     */
-  --c-primaer-hell:   #f4e6e2; /* sehr helle Tönung: Flächen, Badges       */
-  --c-akzent:         #b9822a; /* VORLÄUFIG – Zweitfarbe des Logos        */
-  --c-akzent-hell:    #f6ecd9; /* helle Tönung der Akzentfarbe            */
+  --c-primaer:        #70160b; /* Weinrot – Buttons, Überschriften, Links  */
+  --c-primaer-dunkel: #521007; /* Hover                                    */
+  --c-primaer-tief:   #3a0d07; /* Footer-Hintergrund                       */
+  --c-primaer-hell:   #f6e5dc; /* helle Tönung: Fehler, Heute-Zeile        */
+  --c-akzent:         #f0d164; /* Gold – Linien, Rahmen, Akzente           */
+  --c-akzent-dunkel:  #7a5c0c; /* dunkles Gold für Text auf Weiß (6:1)     */
+  --c-akzent-hell:    #fbedc0; /* helles Gold – Hinweis-Flächen            */
+  --c-gruen:          #1b3e10; /* Weidegrün – „Jetzt geöffnet“             */
+  --c-gruen-hell:     #e4ecd9; /* helle Tönung des Grüns                   */
 
-  /* --- Neutrale Ergänzungen (keine Markenfarben) ----------------------- */
-  --c-hintergrund:    #faf7f2; /* Off-White                                */
+  /* --- Verlauf der bisherigen Website ---------------------------------- */
+  --verlauf-gelb: linear-gradient(180deg, #f3cd4e 0%, #f7db77 50%, #faeaae 100%);
+
+  /* --- Neutrale Ergänzungen -------------------------------------------- */
+  --c-hintergrund:    #fdf8e8; /* warmes Off-White (leicht gelblich)       */
   --c-flaeche:        #ffffff; /* Karten, Formular                         */
-  --c-flaeche-2:      #f1ece4; /* abgesetzte Sektionen                     */
-  --c-linie:          #ddd5c9; /* Rahmen, Trennlinien                      */
-  --c-text:           #2a2623; /* Dunkelgrau – Fließtext                   */
-  --c-text-leise:     #5f5852; /* Nebentexte (Kontrast ≥ 4.5:1 auf Weiß)   */
-  --c-dunkel:         #24201d; /* Footer-Hintergrund                       */
+  --c-flaeche-2:      #f9ecc4; /* abgesetzte Sektionen (helles Gelb)       */
+  --c-linie:          #e6d9b3; /* Rahmen, Trennlinien                      */
+  --c-text:           #2b1d17; /* Dunkelgrau (warm) – Fließtext            */
+  --c-text-leise:     #6b5d55; /* Nebentexte (≥ 5.4:1 auf allen Flächen)   */
+  --c-dunkel:         #3a0d07; /* dunkle Buttons                           */
 
   /* --- Status ---------------------------------------------------------- */
-  --c-offen:          #2f6b3a; /* „Heute geöffnet“ – neutrales Grün        */
-  --c-geschlossen:    #5f5852; /* „Geschlossen“                            */
+  --c-offen:          var(--c-gruen);
+  --c-geschlossen:    #6b5d55;
 }
