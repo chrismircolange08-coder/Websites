@@ -31,6 +31,14 @@ landmetzgerei-nonnenmacher/
 Lokal ansehen: `index.html` im Browser per Doppelklick öffnen. Alles funktioniert, nur die Formular-Dienste nicht.
 Besser ist ein kleiner Testserver: `python3 -m http.server` im Ordner starten, dann http://localhost:8000 öffnen.
 
+## Vorschau über GitHub Pages
+
+- Adresse: **https://chrismircolange08-coder.github.io/Websites/** (leitet automatisch auf `…/Websites/landmetzgerei-nonnenmacher/` weiter).
+- Einstellung: Repository → **Settings → Pages** → *Source*: „Deploy from a branch“ → *Branch*: `claude/nonnenmacher-website-o55ab4`, Ordner **`/ (root)`** → *Save*.
+- Die Datei `.nojekyll` im Hauptordner des Repositorys sorgt dafür, dass GitHub die Dateien unverändert ausliefert (ohne Jekyll).
+- Nach jeder Änderung dauert es 1–2 Minuten, bis die neue Version online ist (Fortschritt im Reiter **Actions**).
+- Hinweis: `.htaccess` wirkt auf GitHub Pages nicht – sie ist nur für Apache-Webhosting gedacht.
+
 ---
 
 ## Öffnungszeiten ändern
@@ -68,7 +76,7 @@ Diese Tage werden als geschlossen angezeigt und sind im Vorbestellformular nicht
 },
 ```
 Mit `von`/`bis` verschwinden veraltete Hinweise von selbst, so bleibt kein Weihnachts-Bestellstopp bis in den Sommer stehen.
-Ist die Liste leer (`window.AKTUELLES = [ ];`), wird die Box ausgeblendet.
+Ist die Liste leer (`window.AKTUELLES = [ ];`, so ist es derzeit), wird die Box ausgeblendet.
 
 ## Vorbestellformular: Versand einstellen
 
@@ -95,6 +103,7 @@ Weitere Einstellungen: `vorlaufTage` (wie viele Tage im Voraus bestellt werden m
 
 `daten/bewertungen.js`: Text, Name und Datum einer **echten** Google-Bewertung wörtlich übernehmen und `platzhalter: false` setzen.
 Bei `googleLink` den Link zu Ihrem Google-Profil eintragen (Google Maps → Ihr Eintrag → „Teilen“ → „Link kopieren“).
+Bei `gesamt` können Sie Sternedurchschnitt und Anzahl der Google-Bewertungen eintragen. **Vor dem Livegang `zeigePlatzhalter: false` setzen**, damit keine leeren Platzhalter-Kästen zu sehen sind.
 
 ## Logo und Farben
 

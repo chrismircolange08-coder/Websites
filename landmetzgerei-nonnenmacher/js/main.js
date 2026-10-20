@@ -10,6 +10,7 @@
      5. Kundenstimmen
      6. Vorbestellformular (Abholtage, Mengenzeilen, Versand)
      7. Google Maps (2-Klick-Lösung)
+     8. Aktionsleiste fürs Handy
    ========================================================================== */
 (function () {
   "use strict";
@@ -140,19 +141,22 @@
       });
     }
 
-    // Kurzfassung im Footer, z. B. "Do & Fr 8–18 Uhr / Sa 8–13 Uhr"
-    var kurz = document.querySelector("[data-zeiten-kurz]");
-    if (kurz && E.oeffnungszeiten) {
+    // Kurzfassung, z. B. "Do & Fr 8–18 Uhr / Sa 8–13 Uhr"
+    // data-zeiten-kurz="zeile" → in einer Zeile (Hero), sonst mit Umbruch (Footer)
+    if (E.oeffnungszeiten) {
       var gruppen = [];
       E.oeffnungszeiten.forEach(function (z) {
         var text = uhrzeitKurz(z.von) + "–" + uhrzeitKurz(z.bis) + " Uhr";
         var g = gruppen.filter(function (x) { return x.text === text; })[0];
         if (g) g.tage.push(TAGE_KURZ[z.tag]); else gruppen.push({ text: text, tage: [TAGE_KURZ[z.tag]] });
       });
-      kurz.textContent = "";
-      gruppen.forEach(function (g, i) {
-        if (i) kurz.appendChild(document.createElement("br"));
-        kurz.appendChild(document.createTextNode(g.tage.join(" & ") + " " + g.text));
+      document.querySelectorAll("[data-zeiten-kurz]").forEach(function (kurz) {
+        var eineZeile = kurz.getAttribute("data-zeiten-kurz") === "zeile";
+        kurz.textContent = "";
+        gruppen.forEach(function (g, i) {
+          if (i) kurz.appendChild(eineZeile ? document.createTextNode(" · ") : document.createElement("br"));
+          kurz.appendChild(document.createTextNode(g.tage.join(" & ") + " " + g.text));
+        });
       });
     }
 
@@ -201,7 +205,19 @@
     if (link && B.googleLink) link.href = B.googleLink;
     if (!liste) return;
 
-    (B.eintraege || []).forEach(function (b) {
+    // Gesamtwertung nur zeigen, wenn echte Zahlen eingetragen sind
+    var gesamt = document.getElementById("stimmen-gesamt");
+    if (gesamt && B.gesamt && B.gesamt.sterne && B.gesamt.anzahl) {
+      gesamt.textContent = "★ " + String(B.gesamt.sterne).replace(".", ",") + " von 5 · " +
+        B.gesamt.anzahl + " Bewertungen auf Google";
+      gesamt.hidden = false;
+    }
+
+    var eintraege = (B.eintraege || []).filter(function (b) { return !b.platzhalter || B.zeigePlatzhalter; });
+    // Keine echten Stimmen? Dann nur den Link zu Google zeigen statt leerer Kästen.
+    if (!eintraege.length) liste.hidden = true;
+
+    eintraege.forEach(function (b) {
       var li = el("li", "stimme" + (b.platzhalter ? " stimme--platzhalter" : ""));
       var sterne = Math.max(0, Math.min(5, b.sterne || 0));
       var s = el("p", "stimme__sterne", "★★★★★".slice(0, sterne) + "☆☆☆☆☆".slice(0, 5 - sterne));
@@ -237,6 +253,23 @@
       opt.value = text;
       auswahl.appendChild(opt);
     }
+
+    // Hinweis auf die Vorlaufzeit, z. B. „ – bitte mind. 2 Tage vorher bestellen“
+    var vorlauf = document.querySelector("[data-vorlauf]");
+    if (vorlauf && V.vorlaufTage > 1) vorlauf.textContent = " – bitte mindestens " + V.vorlaufTage + " Tage vorher bestellen";
+
+    // Klick auf „… vorbestellen“ im Sortiment trägt die Kategorie schon ein (weniger Tipparbeit)
+    var wunsch = document.getElementById("f-wunsch");
+    document.querySelectorAll("[data-vorbestellen]").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var eintrag = link.getAttribute("data-vorbestellen") + ": ";
+        if (wunsch.value.indexOf(eintrag) === -1) {
+          wunsch.value = (wunsch.value ? wunsch.value.replace(/\s*$/, "") + "\n" : "") + eintrag;
+        }
+        // Fokus erst nach dem Scrollen setzen, damit die Tastatur am Handy nicht springt
+        setTimeout(function () { wunsch.focus({ preventScroll: true }); }, 500);
+      });
+    });
 
     // 6b. Optionale Mengenzeilen
     var zeilen = document.getElementById("mengen-zeilen");
@@ -367,5 +400,22 @@
       box.classList.add("karte--geladen");
       box.appendChild(iframe);
     });
+  })();
+
+  /* ---------- 8. Aktionsleiste fürs Handy ------------------------------- */
+  // Sichtbar, sobald die Hero-Knöpfe aus dem Bild sind; ausgeblendet, solange
+  // das Formular oder der Footer zu sehen ist (dort wäre sie nur doppelt).
+
+  (function aktionsleiste() {
+    var leiste = document.getElementById("aktionsleiste");
+    var hero = document.querySelector(".hero__knoepfe");
+    if (!leiste || !hero || !("IntersectionObserver" in window)) return;
+    var sichtbar = {};
+    var ziele = [hero, document.getElementById("vorbestellen"), document.querySelector(".fuss")];
+    var beobachter = new IntersectionObserver(function (eintraege) {
+      eintraege.forEach(function (e) { sichtbar[ziele.indexOf(e.target)] = e.isIntersecting; });
+      leiste.hidden = !!(sichtbar[0] || sichtbar[1] || sichtbar[2]) || sichtbar[0] === undefined;
+    });
+    ziele.forEach(function (z) { if (z) beobachter.observe(z); });
   })();
 })();

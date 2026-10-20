@@ -21,10 +21,7 @@
    geschlosseneTage eintragen, damit sie nicht vorbestellt werden können.
    ========================================================================== */
 
+// Derzeit keine Hinweise → die Box ist ausgeblendet.
+// Einfach die Vorlage von oben zwischen die eckigen Klammern kopieren.
 window.AKTUELLES = [
-  {
-    titel: "Bequem vorbestellen",
-    text:  "Bestellen Sie Ihre Wunschprodukte vor – telefonisch oder über unser Formular – und holen Sie sie donnerstags, freitags oder samstags ab.",
-    art:   "info"
-  }
 ];

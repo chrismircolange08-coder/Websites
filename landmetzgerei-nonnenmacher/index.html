@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- ===== SEO ===== -->
-  <title>Landmetzgerei Nonnenmacher Bergatreute – fein, frisch und günstig</title>
-  <meta name="description" content="Landmetzgerei Nonnenmacher in Bergatreute: Familienbetrieb mit Fleisch und Wurst aus eigener Herstellung. Geöffnet Do & Fr 8–18 Uhr, Sa 8–13 Uhr. Jetzt vorbestellen.">
+  <title>Landmetzgerei Nonnenmacher Bergatreute – vorbestellen &amp; abholen</title>
+  <meta name="description" content="Landmetzgerei Nonnenmacher in Bergatreute: Familienbetrieb für Fleisch und Wurst. Bequem vorbestellen und abholen – Do &amp; Fr 8–18 Uhr, Sa 8–13 Uhr. Dosenwurst auch online.">
   <!-- PLATZHALTER: endgültige Domain eintragen (auch in og:url, og:image, JSON-LD, sitemap.xml) -->
   <link rel="canonical" href="https://www.landmetzgerei-nonnenmacher.de/">
   <meta name="theme-color" content="#70160b">
@@ -16,7 +16,7 @@
   <meta property="og:locale" content="de_DE">
   <meta property="og:site_name" content="Landmetzgerei Nonnenmacher">
   <meta property="og:title" content="Landmetzgerei Nonnenmacher – Immer fein, frisch und günstig!">
-  <meta property="og:description" content="Ihre Landmetzgerei in Bergatreute. Do & Fr 8–18 Uhr, Sa 8–13 Uhr. Jetzt vorbestellen.">
+  <meta property="og:description" content="Ihre Landmetzgerei in Bergatreute. Vorbestellen und abholen: Do &amp; Fr 8–18 Uhr, Sa 8–13 Uhr.">
   <meta property="og:url" content="https://www.landmetzgerei-nonnenmacher.de/">
   <meta property="og:image" content="https://www.landmetzgerei-nonnenmacher.de/images/fotos/hero-1600.webp">
 
@@ -64,7 +64,7 @@
   <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
   <!-- ===================================================================
-       HEADER (sticky) – auf dem Handy mit Telefon-Button
+       HEADER (sticky) – wenige, klare Menüpunkte; Telefon immer sichtbar
        =================================================================== -->
   <header class="kopf" id="kopf">
     <div class="kopf__innen">
@@ -74,13 +74,11 @@
 
       <nav class="nav" id="nav" aria-label="Hauptnavigation">
         <ul class="nav__liste">
-          <li><a href="#aktuelles">Aktuelles</a></li>
           <li><a href="#sortiment">Sortiment</a></li>
-          <li><a href="#vorbestellen">Vorbestellen</a></li>
           <li><a href="#ueber-uns">Über uns</a></li>
-          <li><a href="#oeffnungszeiten">Öffnungszeiten</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#besuch">Öffnungszeiten &amp; Kontakt</a></li>
           <li><a class="nav__shop" href="http://www.dosenwurst-nonnenmacher.com/" target="_blank" rel="noopener">Dosenwurst-Shop <span aria-hidden="true">↗</span></a></li>
+          <li><a class="nav__cta" href="#vorbestellen">Jetzt vorbestellen</a></li>
         </ul>
       </nav>
 
@@ -99,7 +97,7 @@
   <main id="inhalt">
 
     <!-- =================================================================
-         1. HERO
+         1. HERO – in Sekunden klar: Wer? Was habe ich davon? Hat heute offen?
          ================================================================= -->
     <section class="hero" id="start" aria-labelledby="hero-titel">
       <!-- PLATZHALTER-FOTO: Stimmungsbild (z. B. Theke, Laden, Handwerk).
@@ -110,18 +108,23 @@
       </picture>
 
       <div class="hero__inhalt">
-        <img class="hero__logo" src="images/logo.webp" alt="" width="168" height="157" fetchpriority="high">
-        <p class="hero__ort">Familie Nonnenmacher · Bergatreute</p>
+        <img class="hero__logo" src="images/logo.webp" alt="" width="168" height="157">
+        <!-- Live-Status: beantwortet die häufigste Frage zuerst -->
+        <p class="hero__status" data-heute-status aria-live="polite"></p>
         <h1 id="hero-titel" class="hero__titel">
           <span class="hero__immer">Immer …</span>
           <span class="hero__slogan">fein <span class="strich" aria-hidden="true">–</span> frisch <span class="strich" aria-hidden="true">–</span> <span class="hero__und">und</span> günstig!</span>
         </h1>
-        <p class="hero__text">Fleisch und Wurst von Ihrer Landmetzgerei – mit Handwerk und Sorgfalt gemacht.</p>
+        <p class="hero__text">Fleisch und Wurst vom Familienbetrieb in Bergatreute. <strong>Vorbestellen, bereitlegen lassen, bequem abholen.</strong></p>
         <div class="hero__knoepfe">
-          <a class="knopf knopf--primaer" href="#vorbestellen">Jetzt vorbestellen</a>
-          <a class="knopf knopf--hell" href="#oeffnungszeiten">Öffnungszeiten &amp; Anfahrt</a>
+          <a class="knopf knopf--primaer knopf--gross" href="#vorbestellen">Jetzt vorbestellen</a>
+          <a class="knopf knopf--hell" href="#besuch">Öffnungszeiten &amp; Anfahrt</a>
         </div>
-        <p class="hero__status" data-heute-status aria-live="polite"></p>
+        <p class="hero__fakten">
+          <span data-zeiten-kurz="zeile">Do &amp; Fr 8–18 Uhr · Sa 8–13 Uhr</span>
+          <span aria-hidden="true">·</span>
+          <span>Keltenstr. 5, Bergatreute</span>
+        </p>
       </div>
     </section>
 
@@ -143,170 +146,91 @@
     </section>
 
     <!-- =================================================================
-         3. SORTIMENT
+         3. VORTEILE – nur belegbare Fakten als Vertrauenssignale
+         ================================================================= -->
+    <section class="vorteile" aria-label="Warum Landmetzgerei Nonnenmacher">
+      <ul class="behaelter vorteile__liste">
+        <li class="vorteil">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12 3 2 12h3v8h5v-5h4v5h5v-8h3z"/></svg>
+          <div><strong>Familienbetrieb</strong><span>Familie Nonnenmacher</span></div>
+        </li>
+        <li class="vorteil">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          <div><strong>Direkt vor Ort</strong><span>Keltenstr. 5, Bergatreute</span></div>
+        </li>
+        <li class="vorteil">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V9h14zm-8.5-2.5-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6 1.4 1.4z"/></svg>
+          <div><strong>Vorbestellen &amp; abholen</strong><span>Do, Fr und Sa</span></div>
+        </li>
+        <li class="vorteil">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM7.2 14.8h9.9a2 2 0 0 0 1.8-1.1L22 7H5.2l-1-2H1v2h2l3.6 7.6L5.2 17H19v-2H7.4z"/></svg>
+          <div><strong>Dosenwurst online</strong><a href="http://www.dosenwurst-nonnenmacher.com/" target="_blank" rel="noopener">zum Onlineshop ↗</a></div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- =================================================================
+         4. SORTIMENT
          PLATZHALTER: Kategorien, Texte und Fotos bei Bedarf anpassen.
+         Der Link „Vorbestellen“ trägt die Kategorie ins Formular ein.
          ================================================================= -->
     <section class="sektion" id="sortiment" aria-labelledby="sortiment-titel">
       <div class="behaelter">
         <header class="sektion__kopf">
           <p class="dachzeile">Unser Sortiment</p>
-          <h2 id="sortiment-titel">Aus unserer Metzgerei</h2>
+          <h2 id="sortiment-titel">Was bei uns in die Theke kommt</h2>
           <p class="sektion__einleitung">[Platzhalter: Ein Satz zum Sortiment, z.&nbsp;B. woher das Fleisch kommt und was Sie selbst herstellen.]</p>
         </header>
 
         <ul class="kacheln">
           <li class="kachel">
-            <picture>
-              <img src="images/fotos/sortiment-frischfleisch.webp" alt="Platzhalter: Frischfleisch in der Theke" width="800" height="600" loading="lazy" decoding="async">
-            </picture>
+            <img src="images/fotos/sortiment-frischfleisch.webp" alt="Platzhalter: Frischfleisch in der Theke" width="800" height="600" loading="lazy" decoding="async">
             <div class="kachel__text">
               <h3>Frischfleisch</h3>
               <p>[Platzhalter: z.&nbsp;B. Rind, Schwein, Kalb – Beschreibung anpassen.]</p>
+              <a class="kachel__link" href="#vorbestellen" data-vorbestellen="Frischfleisch">Frischfleisch vorbestellen <span aria-hidden="true">→</span></a>
             </div>
           </li>
           <li class="kachel">
-            <picture>
-              <img src="images/fotos/sortiment-wurst.webp" alt="Platzhalter: Wurst und Aufschnitt" width="800" height="600" loading="lazy" decoding="async">
-            </picture>
+            <img src="images/fotos/sortiment-wurst.webp" alt="Platzhalter: Wurst und Aufschnitt" width="800" height="600" loading="lazy" decoding="async">
             <div class="kachel__text">
               <h3>Wurst &amp; Aufschnitt</h3>
               <p>[Platzhalter: Beschreibung der Wurstspezialitäten anpassen.]</p>
+              <a class="kachel__link" href="#vorbestellen" data-vorbestellen="Wurst &amp; Aufschnitt">Wurst vorbestellen <span aria-hidden="true">→</span></a>
             </div>
           </li>
           <li class="kachel">
-            <picture>
-              <img src="images/fotos/sortiment-grill.webp" alt="Platzhalter: Grillspezialitäten" width="800" height="600" loading="lazy" decoding="async">
-            </picture>
+            <img src="images/fotos/sortiment-grill.webp" alt="Platzhalter: Grillspezialitäten" width="800" height="600" loading="lazy" decoding="async">
             <div class="kachel__text">
               <h3>Grillspezialitäten</h3>
               <p>[Platzhalter: Beschreibung der Grillprodukte anpassen.]</p>
+              <a class="kachel__link" href="#vorbestellen" data-vorbestellen="Grillspezialitäten">Grillgut vorbestellen <span aria-hidden="true">→</span></a>
             </div>
           </li>
           <li class="kachel kachel--shop">
-            <picture>
-              <img src="images/fotos/sortiment-dosenwurst.webp" alt="Platzhalter: Dosenwurst der Landmetzgerei Nonnenmacher" width="800" height="600" loading="lazy" decoding="async">
-            </picture>
+            <img src="images/fotos/sortiment-dosenwurst.webp" alt="Platzhalter: Dosenwurst der Landmetzgerei Nonnenmacher" width="800" height="600" loading="lazy" decoding="async">
             <div class="kachel__text">
               <h3>Dosenwurst</h3>
-              <p>Unsere Wurst in der Dose – auch bequem im Onlineshop bestellbar.</p>
-              <a class="kachel__link" href="http://www.dosenwurst-nonnenmacher.com/" target="_blank" rel="noopener">Zum Dosenwurst-Shop <span aria-hidden="true">↗</span></a>
+              <p>Unsere Wurst in der Dose – im Laden und bequem im Onlineshop erhältlich.</p>
+              <a class="kachel__link" href="http://www.dosenwurst-nonnenmacher.com/" target="_blank" rel="noopener">Im Onlineshop bestellen <span aria-hidden="true">↗</span></a>
             </div>
           </li>
           <li class="kachel">
-            <picture>
-              <img src="images/fotos/sortiment-partyservice.webp" alt="Platzhalter: angerichtete Wurst- und Bratenplatte" width="800" height="600" loading="lazy" decoding="async">
-            </picture>
+            <img src="images/fotos/sortiment-partyservice.webp" alt="Platzhalter: angerichtete Wurst- und Bratenplatte" width="800" height="600" loading="lazy" decoding="async">
             <div class="kachel__text">
               <h3>Partyservice &amp; Platten</h3>
               <p>[Platzhalter: Angebot für Feiern beschreiben.]</p>
-              <a class="kachel__link" href="#vorbestellen">Anfragen &amp; vorbestellen</a>
+              <a class="kachel__link" href="#vorbestellen" data-vorbestellen="Partyservice / Platte für ___ Personen">Platte anfragen <span aria-hidden="true">→</span></a>
             </div>
           </li>
         </ul>
-
-        <!-- Prominenter Hinweis auf den Onlineshop -->
-        <aside class="shop-band" aria-labelledby="shop-titel">
-          <div>
-            <h3 id="shop-titel">Nonnenmacher-Dosenwurst – auch online</h3>
-            <p>Keine Zeit für den Laden? Unsere Dosenwurst gibt es im Onlineshop.</p>
-          </div>
-          <a class="knopf knopf--akzent" href="http://www.dosenwurst-nonnenmacher.com/" target="_blank" rel="noopener">Zum Onlineshop <span aria-hidden="true">↗</span></a>
-        </aside>
-      </div>
-    </section>
-
-    <!-- =================================================================
-         4. VORBESTELLUNG
-         Versand-Einstellungen: daten/einstellungen.js → vorbestellung
-         ================================================================= -->
-    <section class="sektion sektion--abgesetzt" id="vorbestellen" aria-labelledby="vorbestellen-titel">
-      <div class="behaelter behaelter--schmal">
-        <header class="sektion__kopf">
-          <p class="dachzeile">Vorbestellung</p>
-          <h2 id="vorbestellen-titel">Bestellen Sie vor – wir legen's bereit</h2>
-          <p class="sektion__einleitung">Abholung donnerstags, freitags oder samstags im Laden. Lieber persönlich? Rufen Sie uns an: <a href="tel:+4975271540">(0&nbsp;75&nbsp;27) 15&nbsp;40</a>.</p>
-        </header>
-
-        <!-- name/data-netlify werden nur bei Netlify Forms gebraucht und stören sonst nicht -->
-        <form class="formular" id="bestellformular" name="vorbestellung" method="post" data-netlify="true" netlify-honeypot="firma" novalidate>
-          <input type="hidden" name="form-name" value="vorbestellung">
-          <!-- Spam-Schutz: dieses Feld bleibt für Menschen unsichtbar -->
-          <p class="sr-only" aria-hidden="true"><label>Firma <input name="firma" tabindex="-1" autocomplete="off"></label></p>
-
-          <fieldset>
-            <legend>Ihre Kontaktdaten</legend>
-            <div class="feld">
-              <label for="f-name">Name <span class="pflicht">*</span></label>
-              <input id="f-name" name="name" type="text" autocomplete="name" required>
-            </div>
-            <div class="feld-reihe">
-              <div class="feld">
-                <label for="f-telefon">Telefon <span class="pflicht">*</span></label>
-                <input id="f-telefon" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required>
-              </div>
-              <div class="feld">
-                <label for="f-email">E-Mail <span class="optional">(optional)</span></label>
-                <input id="f-email" name="email" type="email" autocomplete="email">
-              </div>
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Abholung</legend>
-            <div class="feld">
-              <label for="f-datum">Abholtag <span class="pflicht">*</span></label>
-              <!-- Nur Öffnungstage (Do/Fr/Sa) – wird automatisch erzeugt -->
-              <select id="f-datum" name="abholdatum" required aria-describedby="f-datum-hilfe">
-                <option value="">Bitte wählen …</option>
-              </select>
-              <p class="feld__hilfe" id="f-datum-hilfe">Wählbar sind nur unsere Öffnungstage.</p>
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Ihre Bestellung</legend>
-            <div class="feld">
-              <label for="f-wunsch">Wunschprodukte <span class="pflicht">*</span></label>
-              <textarea id="f-wunsch" name="wunschprodukte" rows="4" required placeholder="z. B. 1 kg Rinderhackfleisch, 6 Paar Wiener, Aufschnitt gemischt für 4 Personen"></textarea>
-            </div>
-
-            <details class="mengen">
-              <summary>Lieber einzeln mit Menge angeben (optional)</summary>
-              <div class="mengen__kopf" aria-hidden="true"><span>Produkt</span><span>Menge</span><span>Einheit</span></div>
-              <div id="mengen-zeilen"></div>
-              <button type="button" class="knopf knopf--klein" id="zeile-hinzu">+ weitere Zeile</button>
-            </details>
-
-            <div class="feld">
-              <label for="f-anmerkung">Anmerkungen <span class="optional">(optional)</span></label>
-              <textarea id="f-anmerkung" name="anmerkungen" rows="3" placeholder="z. B. Uhrzeit der Abholung, Schnittwunsch, Anlass"></textarea>
-            </div>
-          </fieldset>
-
-          <div class="feld feld--check">
-            <input id="f-datenschutz" name="datenschutz" type="checkbox" value="zugestimmt" required>
-            <label for="f-datenschutz">Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Bestellung verwendet werden. Mehr in der <a href="datenschutz.html">Datenschutzerklärung</a>. <span class="pflicht">*</span></label>
-          </div>
-
-          <p class="formular__hinweis">
-            <strong>Bitte beachten:</strong> Ihre Bestellung ist erst verbindlich, wenn wir sie telefonisch oder per E-Mail bestätigt haben.
-          </p>
-
-          <button class="knopf knopf--primaer knopf--breit" type="submit">Vorbestellung absenden</button>
-          <p class="formular__meldung" id="formular-meldung" role="status" aria-live="polite" tabindex="-1"></p>
-          <p class="formular__pflicht"><span class="pflicht">*</span> Pflichtfeld</p>
-        </form>
-
-        <noscript>
-          <p class="formular__hinweis">Das Formular benötigt JavaScript. Bestellen Sie gerne telefonisch unter (0 75 27) 15 40 oder per E-Mail an service@landmetzgerei-nonnenmacher.de.</p>
-        </noscript>
       </div>
     </section>
 
     <!-- =================================================================
          5. ÜBER UNS – PLATZHALTERTEXT, bitte anpassen
          ================================================================= -->
-    <section class="sektion" id="ueber-uns" aria-labelledby="ueber-titel">
+    <section class="sektion sektion--abgesetzt" id="ueber-uns" aria-labelledby="ueber-titel">
       <div class="behaelter ueber">
         <figure class="ueber__bild">
           <img src="images/fotos/ueber-uns.webp" alt="Platzhalter: Familie Nonnenmacher im Laden" width="900" height="1100" loading="lazy" decoding="async">
@@ -334,13 +258,16 @@
     </section>
 
     <!-- =================================================================
-         6. KUNDENSTIMMEN – Inhalte aus daten/bewertungen.js
+         6. KUNDENSTIMMEN – vor der Vorbestellung (erst Vertrauen, dann Bitte)
+         Inhalte aus daten/bewertungen.js
          ================================================================= -->
-    <section class="sektion sektion--abgesetzt" id="stimmen" aria-labelledby="stimmen-titel">
+    <section class="sektion" id="stimmen" aria-labelledby="stimmen-titel">
       <div class="behaelter">
         <header class="sektion__kopf">
           <p class="dachzeile">Kundenstimmen</p>
           <h2 id="stimmen-titel">Das sagen unsere Kunden</h2>
+          <!-- Gesamtbewertung, nur sichtbar wenn in bewertungen.js eingetragen -->
+          <p class="stimmen__gesamt" id="stimmen-gesamt" hidden></p>
         </header>
         <ul class="stimmen" id="stimmen-liste">
           <!-- wird automatisch aus daten/bewertungen.js gefüllt -->
@@ -350,11 +277,98 @@
     </section>
 
     <!-- =================================================================
-         7. ÖFFNUNGSZEITEN & ANFAHRT
+         7. VORBESTELLUNG
+         Versand-Einstellungen: daten/einstellungen.js → vorbestellung
          ================================================================= -->
-    <section class="sektion" id="oeffnungszeiten" aria-labelledby="zeiten-titel">
+    <section class="sektion sektion--abgesetzt" id="vorbestellen" aria-labelledby="vorbestellen-titel">
+      <div class="behaelter behaelter--schmal">
+        <header class="sektion__kopf">
+          <p class="dachzeile">Vorbestellung</p>
+          <h2 id="vorbestellen-titel">Bestellen Sie vor – wir legen's bereit</h2>
+        </header>
+
+        <!-- So funktioniert's: nimmt die Unsicherheit vor dem Absenden -->
+        <ol class="schritte">
+          <li><span class="schritte__nr" aria-hidden="true">1</span><div><strong>Wünsche eintragen</strong><span>Dauert etwa eine Minute.</span></div></li>
+          <li><span class="schritte__nr" aria-hidden="true">2</span><div><strong>Wir bestätigen</strong><span>telefonisch oder per E-Mail.</span></div></li>
+          <li><span class="schritte__nr" aria-hidden="true">3</span><div><strong>Abholen</strong><span>am gewählten Tag im Laden.</span></div></li>
+        </ol>
+
+        <!-- name/data-netlify werden nur bei Netlify Forms gebraucht und stören sonst nicht -->
+        <form class="formular" id="bestellformular" name="vorbestellung" method="post" data-netlify="true" netlify-honeypot="firma" novalidate>
+          <input type="hidden" name="form-name" value="vorbestellung">
+          <!-- Spam-Schutz: dieses Feld bleibt für Menschen unsichtbar -->
+          <p class="sr-only" aria-hidden="true"><label>Firma <input name="firma" tabindex="-1" autocomplete="off"></label></p>
+
+          <fieldset>
+            <legend>Was dürfen wir für Sie bereitlegen?</legend>
+            <div class="feld">
+              <label for="f-wunsch">Wunschprodukte <span class="pflicht">*</span></label>
+              <textarea id="f-wunsch" name="wunschprodukte" rows="4" required placeholder="z. B. 1 kg Rinderhackfleisch, 6 Paar Wiener, Aufschnitt gemischt für 4 Personen"></textarea>
+            </div>
+
+            <details class="mengen">
+              <summary>Lieber einzeln mit Menge angeben (optional)</summary>
+              <div class="mengen__kopf" aria-hidden="true"><span>Produkt</span><span>Menge</span><span>Einheit</span></div>
+              <div id="mengen-zeilen"></div>
+              <button type="button" class="knopf knopf--klein" id="zeile-hinzu">+ weitere Zeile</button>
+            </details>
+
+            <div class="feld">
+              <label for="f-datum">Abholtag <span class="pflicht">*</span></label>
+              <!-- Nur Öffnungstage (Do/Fr/Sa) – wird automatisch erzeugt -->
+              <select id="f-datum" name="abholdatum" required aria-describedby="f-datum-hilfe">
+                <option value="">Bitte wählen …</option>
+              </select>
+              <p class="feld__hilfe" id="f-datum-hilfe">Wählbar sind nur unsere Öffnungstage<span data-vorlauf></span>.</p>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Wie erreichen wir Sie?</legend>
+            <div class="feld-reihe">
+              <div class="feld">
+                <label for="f-name">Name <span class="pflicht">*</span></label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="feld">
+                <label for="f-telefon">Telefon <span class="pflicht">*</span></label>
+                <input id="f-telefon" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required>
+              </div>
+            </div>
+            <div class="feld">
+              <label for="f-email">E-Mail <span class="optional">(optional – für die Bestätigung per Mail)</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email">
+            </div>
+            <div class="feld">
+              <label for="f-anmerkung">Anmerkungen <span class="optional">(optional)</span></label>
+              <textarea id="f-anmerkung" name="anmerkungen" rows="2" placeholder="z. B. Uhrzeit der Abholung, Schnittwunsch, Anlass"></textarea>
+            </div>
+          </fieldset>
+
+          <div class="feld feld--check">
+            <input id="f-datenschutz" name="datenschutz" type="checkbox" value="zugestimmt" required>
+            <label for="f-datenschutz">Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Bestellung verwendet werden (<a href="datenschutz.html">Datenschutzerklärung</a>). <span class="pflicht">*</span></label>
+          </div>
+
+          <button class="knopf knopf--primaer knopf--breit knopf--gross" type="submit">Vorbestellung senden</button>
+          <p class="formular__zusage">Kostenlos. Verbindlich wird Ihre Bestellung erst, wenn wir sie telefonisch oder per E-Mail bestätigt haben.</p>
+          <p class="formular__meldung" id="formular-meldung" role="status" aria-live="polite" tabindex="-1"></p>
+          <p class="formular__pflicht"><span class="pflicht">*</span> Pflichtfeld · Lieber persönlich? <a href="tel:+4975271540">(0&nbsp;75&nbsp;27) 15&nbsp;40</a></p>
+        </form>
+
+        <noscript>
+          <p class="formular__zusage">Das Formular benötigt JavaScript. Bestellen Sie gerne telefonisch unter (0 75 27) 15 40 oder per E-Mail an service@landmetzgerei-nonnenmacher.de.</p>
+        </noscript>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         8. BESUCH: Öffnungszeiten, Anfahrt und Kontakt an einem Ort
+         ================================================================= -->
+    <section class="sektion" id="besuch" aria-labelledby="zeiten-titel">
       <div class="behaelter zeiten">
-        <div class="zeiten__tabelle">
+        <div class="zeiten__tabelle" id="oeffnungszeiten">
           <p class="dachzeile">Öffnungszeiten</p>
           <h2 id="zeiten-titel">Wann wir für Sie da sind</h2>
           <p class="status-badge" data-heute-status aria-live="polite"></p>
@@ -372,6 +386,12 @@
               <tr><th scope="row">Sonntag</th><td>geschlossen</td></tr>
             </tbody>
           </table>
+
+          <ul class="kontakt-liste" id="kontakt">
+            <li><span class="kontakt-liste__art">Telefon</span><a href="tel:+4975271540">(0 75 27) 15 40</a></li>
+            <li><span class="kontakt-liste__art">E-Mail</span><a href="mailto:service@landmetzgerei-nonnenmacher.de">service@landmetzgerei-nonnenmacher.de</a></li>
+            <li><span class="kontakt-liste__art">Fax</span><span>(0 75 27) 91 48 96</span></li>
+          </ul>
         </div>
 
         <div class="zeiten__anfahrt">
@@ -396,33 +416,14 @@
       </div>
     </section>
 
-    <!-- =================================================================
-         8. KONTAKT
-         ================================================================= -->
-    <section class="sektion sektion--kontakt" id="kontakt" aria-labelledby="kontakt-titel">
-      <div class="behaelter">
-        <header class="sektion__kopf">
-          <p class="dachzeile">Kontakt</p>
-          <h2 id="kontakt-titel">Wir freuen uns auf Sie</h2>
-        </header>
-        <ul class="kontakt-karten">
-          <li>
-            <span class="kontakt-karten__art">Telefon</span>
-            <a class="kontakt-karten__wert" href="tel:+4975271540">(0 75 27) 15 40</a>
-          </li>
-          <li>
-            <span class="kontakt-karten__art">E-Mail</span>
-            <a class="kontakt-karten__wert" href="mailto:service@landmetzgerei-nonnenmacher.de">service@landmetzgerei-nonnenmacher.de</a>
-          </li>
-          <li>
-            <span class="kontakt-karten__art">Fax</span>
-            <span class="kontakt-karten__wert">(0 75 27) 91 48 96</span>
-          </li>
-          <li>
-            <span class="kontakt-karten__art">Adresse</span>
-            <span class="kontakt-karten__wert">Keltenstr. 5, 88368 Bergatreute</span>
-          </li>
-        </ul>
+    <!-- Onlineshop als letzte, klar getrennte Option -->
+    <section class="behaelter shop-wrap" aria-labelledby="shop-titel">
+      <div class="shop-band">
+        <div>
+          <h2 id="shop-titel">Nonnenmacher-Dosenwurst – auch online</h2>
+          <p>Keine Zeit für den Laden? Unsere Dosenwurst gibt es im Onlineshop.</p>
+        </div>
+        <a class="knopf knopf--akzent" href="http://www.dosenwurst-nonnenmacher.com/" target="_blank" rel="noopener">Zum Onlineshop <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>
@@ -457,6 +458,12 @@
     </div>
     <p class="fuss__copy">© <span data-jahr>2026</span> Landmetzgerei Nonnenmacher · Bergatreute</p>
   </footer>
+
+  <!-- Aktionsleiste fürs Handy: erscheint nach dem Hero, verschwindet am Formular -->
+  <nav class="aktionsleiste" id="aktionsleiste" aria-label="Schnellzugriff" hidden>
+    <a class="knopf knopf--primaer" href="#vorbestellen">Vorbestellen</a>
+    <a class="knopf knopf--hell" href="https://www.google.com/maps/dir/?api=1&amp;destination=Landmetzgerei+Nonnenmacher%2C+Keltenstr.+5%2C+88368+Bergatreute" target="_blank" rel="noopener">Route</a>
+  </nav>
 
   <!-- Inhalte zum Pflegen (ohne HTML-Kenntnisse änderbar) -->
   <script src="daten/einstellungen.js" defer></script>

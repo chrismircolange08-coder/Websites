@@ -6,7 +6,8 @@
      2. Grundlagen       6. Aktuelles       10. Kundenstimmen
      3. Bausteine        7. Sortiment       11. Öffnungszeiten & Karte
      4. Header & Menü    8. Formular        12. Kontakt & Footer
-                                            13. Rechtstexte
+     6b. Vorteile        8b. Schritte       13. Rechtstexte
+                                            14. Aktionsleiste (Handy)
    ========================================================================== */
 
 /* ---------- 1. Schriften (SIL Open Font License, siehe fonts/OFL-*.txt) --- */
@@ -100,6 +101,7 @@ p { margin: 0 0 1em; }
 .knopf--klein { min-height: 40px; padding: .4rem 1rem; font-size: .95rem; background: transparent; border-color: var(--c-linie); color: var(--c-text); }
 .knopf--klein:hover { border-color: var(--c-primaer); color: var(--c-primaer); }
 .knopf--breit { width: 100%; }
+.knopf--gross { min-height: 54px; padding-inline: 1.8rem; font-size: 1.08rem; box-shadow: 0 6px 16px -8px rgb(58 13 7 / .6); }
 .knopf[disabled] { opacity: .6; cursor: wait; }
 
 /* ---------- 4. Header & Menü --------------------------------------------- */
@@ -154,7 +156,8 @@ p { margin: 0 0 1em; }
   text-decoration: none; border-bottom: 1px solid var(--c-linie);
 }
 .nav__liste a:hover { color: var(--c-primaer); }
-.nav__shop { color: var(--c-primaer) !important; }
+.nav__shop, .nav__cta { color: var(--c-primaer) !important; }
+.nav__cta { font-weight: 700 !important; }
 
 @media (min-width: 1000px) {
   :root { --kopf-hoehe: 92px; }
@@ -164,12 +167,16 @@ p { margin: 0 0 1em; }
   .nav__liste { display: flex; gap: .15rem; padding: 0; }
   .nav__liste a { border: 0; padding: .5rem .65rem; border-radius: 6px; font-size: .98rem; }
   .nav__liste a:hover { background: var(--c-primaer-hell); }
-  .nav__shop { border: 2px solid var(--c-primaer-hell) !important; }
-  .kopf__tel { margin-left: .5rem; }
+  /* Hauptaktion gefüllt, Telefon als zweite Option umrandet */
+  .nav__liste { align-items: center; }
+  .nav__cta { background: var(--c-primaer); color: #fff !important; border-radius: 999px !important; padding: .6rem 1.2rem !important; margin-left: .35rem; }
+  .nav__cta:hover { background: var(--c-primaer-dunkel) !important; }
+  .kopf__tel { margin-left: .5rem; background: transparent; color: var(--c-primaer); border: 2px solid var(--c-primaer); }
+  .kopf__tel:hover { background: var(--c-primaer-hell); color: var(--c-primaer-dunkel); }
 }
 
 /* ---------- 5. Hero ------------------------------------------------------- */
-.hero { position: relative; min-height: min(86vh, 760px); display: grid; align-items: end; color: #fff; isolation: isolate; overflow: hidden; }
+.hero { position: relative; min-height: min(78vh, 720px); display: grid; align-items: end; color: #fff; isolation: isolate; overflow: hidden; }
 .hero__bild, .hero__bild img { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero__bild img { object-fit: cover; }
 .hero__bild { z-index: -2; }
@@ -178,19 +185,27 @@ p { margin: 0 0 1em; }
   content: ""; position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(180deg, rgb(58 13 7 / .2) 0%, rgb(46 10 5 / .6) 45%, rgb(36 8 4 / .88) 100%);
 }
-.hero__inhalt { width: 100%; max-width: var(--breite); margin-inline: auto; padding: 6rem 1rem 3rem; }
-.hero__logo { width: clamp(110px, 22vw, 168px); height: auto; margin-bottom: 1.25rem; filter: drop-shadow(0 6px 18px rgb(0 0 0 / .45)); }
-.hero__ort { font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .85rem; margin-bottom: 1rem; opacity: .92; }
+.hero__inhalt { width: 100%; max-width: var(--breite); margin-inline: auto; padding: 4.5rem 1rem 3.25rem; }
+/* Auf dem Handy reicht das Logo im Header – so bleiben Nutzen und Button im ersten Bildschirm */
+.hero__logo { display: none; width: clamp(110px, 18vw, 168px); height: auto; margin-bottom: 1.25rem; filter: drop-shadow(0 6px 18px rgb(0 0 0 / .45)); }
+@media (min-width: 700px) { .hero__logo { display: block; } .hero__inhalt { padding: 6rem 1rem 4rem; } }
 .hero__titel { color: #fff; margin-bottom: 1rem; }
 .hero__immer { display: block; font-size: clamp(1.4rem, 1rem + 2vw, 2.2rem); font-weight: 700; font-style: italic; opacity: .9; }
 .hero__slogan { display: block; font-size: clamp(2.6rem, 1.4rem + 6vw, 5.4rem); font-weight: 800; line-height: 1.02; letter-spacing: -.02em; }
 .hero__slogan .strich { color: var(--c-akzent); }
 .hero__und { font-weight: 700; font-size: .7em; }
-.hero__text { font-size: clamp(1.1rem, 1rem + .5vw, 1.3rem); max-width: 36ch; margin-bottom: 1.75rem; }
+.hero__text { font-size: clamp(1.15rem, 1rem + .6vw, 1.4rem); max-width: 34ch; margin-bottom: 1.5rem; }
+.hero__text strong { color: var(--c-akzent); font-weight: 700; }
 .hero__knoepfe { display: flex; flex-wrap: wrap; gap: .75rem; }
 .hero__knoepfe .knopf { flex: 1 1 220px; }
 @media (min-width: 600px) { .hero__knoepfe .knopf { flex: 0 0 auto; } }
-.hero__status:not(:empty) { display: inline-flex; align-items: center; gap: .5rem; margin: 1.5rem 0 0; font-weight: 600; }
+.hero__status:empty { display: none; }
+.hero__status {
+  display: inline-flex; align-items: center; gap: .5rem; margin: 0 0 1rem;
+  padding: .35rem .85rem; border-radius: 999px; font-weight: 600; font-size: .95rem;
+  background: rgb(0 0 0 / .35); border: 1px solid rgb(255 255 255 / .25);
+}
+.hero__fakten { margin: 1.1rem 0 0; font-size: .98rem; opacity: .92; display: flex; flex-wrap: wrap; gap: .1rem .5rem; }
 .hero__status::before, .status-badge::before { content: ""; width: .65rem; height: .65rem; border-radius: 50%; background: currentColor; }
 .hero__status.ist-offen::before { background: var(--c-akzent); box-shadow: 0 0 0 3px rgb(240 209 100 / .35); }
 .hero__status.ist-zu::before { background: #d6cfc8; }
@@ -210,6 +225,18 @@ p { margin: 0 0 1em; }
 .hinweis__titel { font-size: 1.1rem; margin-bottom: .25rem; }
 .hinweis__text { margin-bottom: .8rem; }
 
+/* ---------- 6b. Vorteile (Vertrauensleiste) ------------------------------ */
+.vorteile { padding-block: 2rem .5rem; }
+.vorteile__liste { list-style: none; margin-block: 0; display: grid; gap: .75rem; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 900px) { .vorteile__liste { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; } }
+.vorteil { display: flex; align-items: center; gap: .7rem; padding: .85rem; background: var(--c-flaeche); border-radius: var(--radius); border-bottom: 3px solid var(--c-akzent); }
+.vorteil svg { flex: none; color: var(--c-primaer); }
+.vorteil div { display: flex; flex-direction: column; line-height: 1.3; min-width: 0; }
+.vorteil strong { font-size: .98rem; }
+.vorteil span, .vorteil a { font-size: .9rem; color: var(--c-text-leise); overflow-wrap: anywhere; }
+.vorteil a { color: var(--c-primaer); font-weight: 600; }
+@media (max-width: 380px) { .vorteil svg { display: none; } }
+
 /* ---------- 7. Sortiment -------------------------------------------------- */
 .kacheln { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
 @media (min-width: 620px) { .kacheln { grid-template-columns: repeat(2, 1fr); } }
@@ -221,21 +248,34 @@ p { margin: 0 0 1em; }
 .kachel { background: var(--c-flaeche); border-radius: var(--radius); overflow: hidden; box-shadow: var(--schatten); display: flex; flex-direction: column; }
 .kachel img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; transition: transform .4s; }
 .kachel:hover img { transform: scale(1.03); }
-.kachel picture { overflow: hidden; }
+
 .kachel__text { padding: 1.1rem 1.25rem 1.25rem; display: flex; flex-direction: column; flex: 1; }
 .kachel__text p { color: var(--c-text-leise); }
 .kachel__link { margin-top: auto; font-weight: 700; }
 .kachel--shop { outline: 3px solid var(--c-akzent); outline-offset: -3px; }
 
+.shop-wrap { padding-bottom: clamp(3rem, 2rem + 4vw, 5rem); }
 .shop-band {
-  margin-top: 2rem; padding: 1.5rem; border-radius: var(--radius);
+  padding: 1.5rem; border-radius: var(--radius);
   /* Gelber Verlauf der bisherigen Website als Wiedererkennungsmerkmal */
   background: var(--verlauf-gelb); color: var(--c-primaer); border: 3px solid var(--c-primaer);
   display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;
 }
-.shop-band h3 { color: var(--c-primaer); font-size: 1.4rem; margin-bottom: .25rem; }
+.shop-band h2 { color: var(--c-primaer); font-size: 1.4rem; margin-bottom: .25rem; }
 .shop-band p { margin: 0; opacity: .95; }
 @media (min-width: 760px) { .shop-band { flex-direction: row; align-items: center; justify-content: space-between; padding: 1.75rem 2.25rem; } }
+
+/* ---------- 8b. Schritte „So funktioniert's“ ------------------------------ */
+.schritte { list-style: none; padding: 0; margin: 0 0 1.5rem; display: grid; gap: .6rem; }
+@media (min-width: 640px) { .schritte { grid-template-columns: repeat(3, 1fr); gap: 1rem; } }
+.schritte li { display: flex; gap: .75rem; align-items: center; }
+.schritte__nr {
+  flex: none; width: 2.2rem; height: 2.2rem; border-radius: 50%; display: grid; place-items: center;
+  background: var(--c-primaer); color: #fff; font: 800 1.05rem/1 var(--f-titel);
+  box-shadow: 0 0 0 3px var(--c-akzent);
+}
+.schritte div { display: flex; flex-direction: column; line-height: 1.3; }
+.schritte span:not(.schritte__nr) { color: var(--c-text-leise); font-size: .95rem; }
 
 /* ---------- 8. Formular --------------------------------------------------- */
 .formular { background: var(--c-flaeche); border-radius: var(--radius); box-shadow: var(--schatten); padding: 1.25rem; }
@@ -269,7 +309,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--c-primaer); outl
 .feld--check input { width: 1.35rem; height: 1.35rem; min-height: 0; margin: .15rem 0 0; accent-color: var(--c-primaer); }
 .feld--check label { font-weight: 400; margin: 0; }
 
-.formular__hinweis { background: var(--c-akzent-hell); border-left: 4px solid var(--c-akzent-dunkel); padding: .8rem 1rem; border-radius: 6px; }
+.formular__zusage { font-size: .95rem; color: var(--c-text-leise); text-align: center; margin: .75rem 0 0; }
 .formular__meldung:empty { display: none; }
 .formular__meldung { margin: 1rem 0 0; padding: .8rem 1rem; border-radius: 6px; font-weight: 600; }
 .formular__meldung--ok { background: var(--c-gruen-hell); color: var(--c-offen); }
@@ -298,6 +338,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--c-primaer); outl
 .stimme__text { margin: 0 0 1rem; font-size: 1.08rem; font-style: italic; flex: 1; }
 .stimme__name { font-weight: 600; margin: 0; font-size: .95rem; }
 .stimmen__mehr { margin: 1.5rem 0 0; font-weight: 700; }
+.stimmen__gesamt { font-family: var(--f-titel); font-weight: 700; font-size: 1.2rem; color: var(--c-akzent-dunkel); }
 
 /* ---------- 11. Öffnungszeiten & Karte ------------------------------------ */
 .zeiten { display: grid; gap: 3rem; }
@@ -332,13 +373,10 @@ input:focus, select:focus, textarea:focus { border-color: var(--c-primaer); outl
 .karte iframe { width: 100%; height: 100%; border: 0; display: block; }
 
 /* ---------- 12. Kontakt & Footer ------------------------------------------ */
-.sektion--kontakt { background: var(--verlauf-gelb); }
-.kontakt-karten { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
-@media (min-width: 640px) { .kontakt-karten { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1000px) { .kontakt-karten { grid-template-columns: repeat(4, 1fr); } }
-.kontakt-karten li { background: rgb(255 255 255 / .85); border-top: 4px solid var(--c-primaer); border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--schatten); min-width: 0; }
-.kontakt-karten__art { display: block; font-size: .85rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; color: var(--c-text-leise); margin-bottom: .25rem; }
-.kontakt-karten__wert { font-family: var(--f-titel); font-weight: 700; font-size: 1.15rem; overflow-wrap: anywhere; }
+.kontakt-liste { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: .5rem; }
+.kontakt-liste li { display: flex; flex-wrap: wrap; gap: .1rem 1rem; align-items: baseline; padding: .7rem 1.1rem; background: var(--c-flaeche); border-radius: var(--radius); border-left: 4px solid var(--c-primaer); }
+.kontakt-liste__art { min-width: 4.5rem; font-size: .85rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 700; color: var(--c-text-leise); }
+.kontakt-liste a, .kontakt-liste span:last-child { font-family: var(--f-titel); font-weight: 700; font-size: 1.1rem; overflow-wrap: anywhere; }
 
 .fuss { background: var(--c-primaer-tief); color: #f3e6cf; border-top: 6px solid var(--c-akzent); padding: 3.5rem 0 1.5rem; }
 .fuss a { color: #fff; }
@@ -360,3 +398,16 @@ input:focus, select:focus, textarea:focus { border-color: var(--c-primaer); outl
 .platzhalter-hinweis { background: var(--c-akzent-hell); border-left: 4px solid var(--c-akzent-dunkel); padding: 1rem 1.25rem; border-radius: 6px; margin-bottom: 2rem; }
 mark { background: var(--c-akzent-hell); color: inherit; padding: 0 .2em; border-radius: 3px; outline: 1px dashed var(--c-akzent-dunkel); }
 .zurueck { display: inline-block; margin-bottom: 1.5rem; font-weight: 700; }
+
+/* ---------- 14. Aktionsleiste (Handy) ------------------------------------- */
+/* Daumenfreundlich unten: die zwei wichtigsten Aktionen, nur auf kleinen Bildschirmen */
+.aktionsleiste {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  display: grid; grid-template-columns: 2fr 1fr; gap: .5rem;
+  padding: .6rem 1rem calc(.6rem + env(safe-area-inset-bottom));
+  background: #fffdf6; border-top: 3px solid var(--c-akzent);
+  box-shadow: 0 -6px 18px -10px rgb(0 0 0 / .35);
+}
+.aktionsleiste[hidden] { display: none; }
+.aktionsleiste .knopf--hell { border-color: var(--c-primaer); }
+@media (min-width: 1000px) { .aktionsleiste { display: none !important; } }
