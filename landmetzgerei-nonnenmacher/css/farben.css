@@ -1,0 +1,36 @@
+/* ==========================================================================
+   FARBPALETTE – Landmetzgerei Nonnenmacher
+   --------------------------------------------------------------------------
+   ⚠ VORLÄUFIG: Diese Werte sind Platzhalter, weil die Original-Datei
+   images/logo.svg beim Bau nicht abrufbar war.
+
+   So setzen Sie die echten Logo-Farben ein:
+     1. Original-Logo als images/logo.svg ablegen
+     2. Im Ordner der Website ausführen:
+          python3 tools/farben-aus-logo.py images/logo.svg
+     3. Die ausgegebenen Werte für --c-primaer / --c-akzent hier eintragen.
+
+   Regel: Nur Farben aus dem Logo + neutrale Töne (Off-White, Grau).
+   ========================================================================== */
+
+:root {
+  /* --- Markenfarben (aus dem Logo) ------------------------------------- */
+  --c-primaer:        #8c2f1f; /* VORLÄUFIG – Hauptfarbe des Logos        */
+  --c-primaer-dunkel: #6b2316; /* ca. 20 % dunkler: Hover, Header-Text     */
+  --c-primaer-hell:   #f4e6e2; /* sehr helle Tönung: Flächen, Badges       */
+  --c-akzent:         #b9822a; /* VORLÄUFIG – Zweitfarbe des Logos        */
+  --c-akzent-hell:    #f6ecd9; /* helle Tönung der Akzentfarbe            */
+
+  /* --- Neutrale Ergänzungen (keine Markenfarben) ----------------------- */
+  --c-hintergrund:    #faf7f2; /* Off-White                                */
+  --c-flaeche:        #ffffff; /* Karten, Formular                         */
+  --c-flaeche-2:      #f1ece4; /* abgesetzte Sektionen                     */
+  --c-linie:          #ddd5c9; /* Rahmen, Trennlinien                      */
+  --c-text:           #2a2623; /* Dunkelgrau – Fließtext                   */
+  --c-text-leise:     #5f5852; /* Nebentexte (Kontrast ≥ 4.5:1 auf Weiß)   */
+  --c-dunkel:         #24201d; /* Footer-Hintergrund                       */
+
+  /* --- Status ---------------------------------------------------------- */
+  --c-offen:          #2f6b3a; /* „Heute geöffnet“ – neutrales Grün        */
+  --c-geschlossen:    #5f5852; /* „Geschlossen“                            */
+}
